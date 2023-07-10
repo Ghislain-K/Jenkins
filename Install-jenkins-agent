@@ -1,0 +1,35 @@
+#############################on jenkins node##################
+launch a vm as a node for jenkins  and go root  ( $sudo -i)
+
+2- install java into node machine make sure to install the same  or higher java version the master is using 
+      $java -version    into master machine
+        now on node machine run the following
+         
+         $sudo apt update -y 
+         $sudo apt install default-jre -y
+         $sudo apt install default-jdk -y
+
+3- create user called jenkins with home directory
+   $useradd -m -d /home/jenkins jenkins -s /bin/bash
+4- $passwd jenkins
+5- $echo "jenkins   ALL=(ALL)  NOPASSWD: ALL" > /etc/sudoers.d/jenkins
+6- $su - jenkins 
+7-  $ssh-keygen -t rsa -N "" -f /home/jenkins/.ssh/id_rsa
+8- $cd /home/jenkins/.ssh
+9- $cat id_rsa.pub > authorized_keys
+10 -$chmod 700 authorized_keys
+
+#######################on jenkins master################
+11- $sudo -i 
+12- $passwd jenkins
+13- $echo "jenkins   ALL=(ALL)  NOPASSWD: ALL" > /etc/sudoers.d/jenkins
+14- $su - jenkins 
+15-$mkdir .ssh
+16- $cd .ssh
+17-$ssh-keyscan -H  <your-node-ip-address>    >> known_hosts
+18 $chmod 700 known_hosts 
+19- $chown jenkins:jenkins known_hosts
+#############################on jenkins node##################
+20-$cd /home/jenkins/.ssh
+21- $more id_rsa > file
+22- $cat file
