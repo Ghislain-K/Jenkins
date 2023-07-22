@@ -1,1 +1,52 @@
+1. which tool have you used for implementing  CI/CD  pipeline? 
+2. Any alternate tool do you know for CI/CD ? 
+3. what is Continuous Integration? 
+4. what type of jobs have you configured in jenkins? 
+5. what are the types of jobs are available in jenkins?
+ 6. what is difference b/w freestyle and pipeline? 
+7. what is pipeline? 
+8. what is declarative pipeline? 
+9. what is difference between declarative pipeline and script based pipeline? 
+10. write the pipeline syntax? 
+11. what is master/slave architecture? what is the use of master/slave?
+ 12. How slave can we connect to  the master? 
+13. how can we provide security in jenkins? 
+14. what is sonarqube ? have you configure ? How you configure ?
+ 15. what type of artifactory repository tool have you used? 
+16. what is the use of artifactory tools?
+ 17. How you declare a variables in pipeline? 
+18. what is DSL language? domain specific language? 
+19. what is upstream/downstream projects? what is the use of it? which scenario you configure?
+ 20. If you  have 10 repositories in github how many jobs you can configure? 
+21. Dou you have experience to install jenkins? 
+22. How you configure jdk,maven,gradle...etc? 
+23. In my environment i have different version for java implementation projects is there ? How you configure multiple jdk's? 
+24. what are the plugins have you used in your project?
+ 25. How to take backup my jenkins? thin backup plugin 
+26. what is jenkins Home directory? 
+27. How to deleted old builds automatically? 
+28. How to configure multiple environment deployment?
+29. what are Jenkins plugin you are familiar with
+30. what is Jenkins share library
+31. how can you limit job in Jenkins.
+32. what is label in Jenkins
+What is pre-build, build, and post build action in Jenkins.
+33. how do you secure Jenkins 
+34.how can you move a job from one Jenkins to another
+35- what are pre-test in Jenkins.
+36- can you build a job with multiple branche in Jenkins 
+37.how can you make Jenkins fail a job base of specific string
+38. what are the element needed to build a job in Jenkins
+39.how do you install Jenkins
+40. how do you backup of file in Jenkins
+41. what do you do when you see a broken build in Jenkins
+42. what is a jenkinsfile
+43.what is agent in Jenkins.
+44. how do we instruct Jenkins to build a job using a specific node
+45. what is Jenkins master node
+46. can Jenkins deploy to Kubernetes?  Explain
+47. can Jenkins run playbook in ansible, explain?
+48. what is a build trigger list all tigger you know.
+49. how do you set webhook between Jenkins and github
+50. how do you define build parameter in Jenkins
 
