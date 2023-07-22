@@ -1,1 +1,61 @@
+Setup SSH between Jenkins and Github
+In this story, you will learn how to set up SSH between Jenkins and Github. Using this approach, you do not need to provide your credentials to configure the git repo in your Jenkins job, and you will achieve the password-less connection
 
+Recently other methods have been deprecated for security reasons, and this is the new standard.
+
+Steps
+Generate the SSH keys
+
+Copy the public key in Github
+
+Configure in Jenkins Credentials
+
+Configure a sample job in Jenkins using SSH connection
+
+Configure Jenkins user
+Generate the ssh keys and ensure the ssh-agent is running
+
+
+ssh-keygen
+sudo eval $(sudo ssh-agent -s)
+ssh-add ~/.ssh/id_rsa
+
+An SSH key is generated successfully and allows you to achieve the password-less connection between Jenkins and Github
+
+Copy the public key using the below command (or where ever your ‘.ssh’ folder is and copy the key)
+
+cat /home/ubuntu/.ssh/id_rsa.pub
+
+
+Github Configuration
+Go to GitHub repository -> setting -> add deploy keys
+
+
+Configure Jenkins Credentials
+Now we will configure the private key of the jenkins user in the Jenkins configuration
+
+Add SSH Key inside Jenkins
+Login to Jenkins
+
+Now go to Manage Jenkins from the left panel inside the Jenkins console and then click Manage Credentials:
+
+
+After this, select ‘Add Credentials’. This will open a new form for us. In the dropdown, select ‘SSH username with private key’ and then give a name for it.
+
+Copy the private key from the Jenkins server.
+
+
+Now you can clone any git repo in this Jenkins instance. You do not need to provide the credentials while configuring the job in Jenkins.
+
+Configure Jenkins Job
+
+Create a freestyle job in Jenkins
+
+Configure SSH URL of your git repo
+
+
+
+Conclusion:
+We have successfully set up SSH between Jenkins and Github for achieving a passwordless connection. Using this approach, you do not need to provide your credentials to configure the git repo in your Jenkins job.
+
+Add label
