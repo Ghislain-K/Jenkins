@@ -1,1 +1,99 @@
+blob:https://devopseasylearning.atlassian.net/267c9398-3a82-49cf-b06e-1c3a40a8436f#media-blob-url=true&id=4d0af058-563d-4e04-b322-2de4f2331784&collection=contentId-21659704&contextId=21659704&height=440&width=750&alt=
 
+
+
+
+It is very important to have Jenkins backup with its data and configurations. It includes job configs, builds logs, plugins, plugin configuration, etc.
+
+In this article, I will cover the following two important ways to back up Jenkins data and configurations.
+
+Using Think Backup Plugin
+
+Backup using Disk Snapshots
+
+Jenkins Backup Using Thin Backup Plugin
+Jenkins Thin Backup is a popular plugin for backing up Jenkins. It backs up all the data based on your schedule and it handles the backup retention as well.
+
+Following are the core features for this plugin.
+
+Full backup
+
+Differential backup
+
+File exclusions from Backup
+
+Backup build results
+
+Cleanup of differential backups
+
+Archive old backups to ZIP format
+
+Step 1: Install the think backup plugin.
+Go to Manage Jenkins –> Manage Plugins
+
+Click the Available tab and search for “Thin backup”
+
+
+ 
+
+Install the plugin and restart Jenkins.
+
+Step 2: Thinbackup Plugin Configuration
+Once the plugin is installed, follow the steps given below to configure the backup settings.
+
+Go to Manage Jenkins — > ThinBackup
+
+Click settings option.
+
+
+Enter the backup options as shown below and save them. All the options are self-explanatory. The backup directory you specify should be writable by the user who is running the Jenkins service. The plugin saves the backup to the backup directory you specify.
+
+
+Now, you can test if the backup is working by clicking the 
+
+Backup Now option. It will create a backup of Jenkins data in the backup directory you specified in the settings.
+
+
+If you check the backup directory in the server, you can see the backup created. For every new backup, it will attach the timestamp to the folder name and keeps the old backup based on the retention policy you mentioned in the settings.
+
+An example is shown below.
+
+
+[devopscube@jenkins backup]$ pwd
+/var/lib/jenkins/backup
+[devopscube@jenkins backup]$ ls
+FULL-2017-08-20_05-42  FULL-2017-08-20_05-43  FULL-2017-08-20_05-44
+[devopscube@jenkins backup]$
+Step 3: Backing up the Jenkins Backup
+It is not a good idea to keep the Jenkins backup in Jenkins itself. It is a single point of failure.
+
+It is a must to move thin backups to cloud storage or any other backup location. So that, even if the Jenkins server crashes you will have all the data.
+
+If you are on AWS, Azure, or Google Cloud, you can upload the backup’s respective storage solution using a Linux CronJob
+
+Jenkins Backup Using Disk Snapshots
+As you know, Jenkins doesn’t have a database. All the configurations are stored as files in the /var/lib/jenkins folder.
+
+All the modern private and public cloud platforms support disk snapshot feature.
+
+If your environment supports disk snapshots, here is what you can do during the initial Jenkins installation.
+
+Attach an external disk to your Jenkins server.
+
+Mount the disk to the server on a folder, say /jenkins_data
+
+If you have existing data, move all data from /var/lib/jenkins to /jenkins_data folder first.
+
+Symlink /var/lib/jenkins to /jenkins_data.
+
+Restart Jenkins and check if Jenkins is using the newly mounted disk.
+
+Now, you can take a timely snapshot of the extra disk. This will serve as a point-in-time backup for your Jenkins.
+
+For some reason, if you Jenkins server crashes or data gets corrupted, create a new disk from the existing snapshot backup and replace it in the Jenkins server. Jenkins will have all the data from the snapshot point in time backup.
+
+If you on AWS cloud, use the EBS snapshot automation feature to backup the Jenkins data disk.
+
+Also, if you are running Jenkins on Kubernetes, you can backup the persistent volume.
+
+Also, we suggest you use the Thin backup plugin in conjunction with disk snapshots.
