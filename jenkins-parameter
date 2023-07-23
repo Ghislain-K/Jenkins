@@ -4,6 +4,7 @@ In Jenkins, a parameter is a configurable value that allows users to customize h
 Parameters can be used to make builds more flexible and dynamic, enabling users to provide input during job execution. 
 This is especially useful when you want to run the same Jenkins job with different configurations or settings.
 Jenkins supports various types of parameters, and they can be defined at the job level. Here are some common types of parameters:
+
 1.	String Parameter: A simple text parameter that allows users to enter any value.
 
 2.	Boolean Parameter: A parameter with a true/false (Boolean) value, often used for enabling or disabling specific steps in a build.
@@ -13,6 +14,7 @@ Jenkins supports various types of parameters, and they can be defined at the job
 4.	File Parameter: Enables users to upload a file as a parameter, which can be used during the build.
 
 5.	Password Parameter: Similar to a string parameter, but the entered value is hidden (masked) for security purposes.
+
 To set up parameters in Jenkins:
 1. Go to the configuration page of your Jenkins job.
 2. Under the "Build Triggers" section, check the box "This build is parameterized."
@@ -20,6 +22,8 @@ To set up parameters in Jenkins:
 4. Configure the parameter settings (e.g., name, description, default value, choices, etc.) 
    according to your requirements.
 5. Save the job configuration.
+
 When you trigger the Jenkins job, either manually or through other means (e.g., webhook, scheduled, etc.), Jenkins will prompt you to enter the parameter values before starting the build. 
 The build will use the entered values during its execution.
+
 Using parameters in Jenkins allows for greater flexibility and reusability of jobs, making it easier to customize the build process for different scenarios.
