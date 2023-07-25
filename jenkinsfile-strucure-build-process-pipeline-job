@@ -1,4 +1,3 @@
-
 pipeline {
     agent {
         // Define where the pipeline should be executed
